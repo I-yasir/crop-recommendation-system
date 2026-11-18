@@ -5,8 +5,8 @@ until the previous one is approved. Every phase begins by re-reading `docs/`.
 
 | Phase | Name | Status |
 |---|---|---|
-| 1 | Documentation & setup | ✅ Done, awaiting approval |
-| 2 | EDA & preprocessing | ⏳ Not started |
+| 1 | Documentation & setup | ✅ Done (approved) |
+| 2 | EDA & preprocessing | ✅ Done, awaiting approval |
 | 3 | Model training, evaluation & selection | ⏳ Not started |
 | 4 | End-to-end ML pipeline (`src/`) | ⏳ Not started |
 | 5 | Streamlit web app + deployment config | ⏳ Not started |
@@ -34,11 +34,13 @@ until the previous one is approved. Every phase begins by re-reading `docs/`.
 5. **Bivariate / multivariate:** correlation heatmap, feature-vs-crop plots, soil vs crop
    cross-tab, feature separability.
 6. **Feature engineering (candidates, evaluated not assumed):** N:P:K ratios, total NPK,
-   temperature–humidity interaction. Kept only if they help in Phase 3.
+   temperature–humidity interaction. Result: 0 pp CV gain → not kept.
 7. **Preprocessing design:** stratified train/test split *after* dedupe, `StandardScaler` for
    numerics, `OneHotEncoder` for `soil`, `LabelEncoder` for the target, all inside a
    `ColumnTransformer` to avoid leakage.
 8. **Summary of findings and decisions** feeding Phase 3–4.
+
+**Status:** all 8 steps done in `notebooks/eda.ipynb`; outputs in `data/processed/` and `reports/figures/`.
 
 **Exit criteria:** notebook runs top-to-bottom cleanly; findings recorded in `docs/phase_logs.md`.
 
@@ -95,3 +97,4 @@ until the previous one is approved. Every phase begins by re-reading `docs/`.
 | Date | Change |
 |---|---|
 | 2026-11-18 | Plan created (Phase 1). |
+| 2026-11-18 | Phase 2 done. Added `data/processed/` for derived data; engineered features dropped (no gain). |

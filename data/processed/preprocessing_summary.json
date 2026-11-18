@@ -1,0 +1,110 @@
+{
+  "raw_rows": 5000,
+  "unique_rows": 1000,
+  "duplicates_removed": 4000,
+  "label_conflicts": 0,
+  "missing_values": 0,
+  "classes": [
+    "beans",
+    "cassava",
+    "guinea_corn",
+    "maize",
+    "orange",
+    "pepper",
+    "rice",
+    "soybean",
+    "tomatoes",
+    "yam"
+  ],
+  "rows_per_class_after_dedupe": {
+    "beans": 100,
+    "cassava": 100,
+    "guinea_corn": 100,
+    "maize": 100,
+    "orange": 100,
+    "pepper": 100,
+    "rice": 100,
+    "soybean": 100,
+    "tomatoes": 100,
+    "yam": 100
+  },
+  "soil_categories": [
+    "clay",
+    "loamy",
+    "loamy clay",
+    "sandy loam"
+  ],
+  "numeric_features": [
+    "N",
+    "P",
+    "K",
+    "temperature",
+    "humidity",
+    "ph",
+    "rainfall"
+  ],
+  "categorical_features": [
+    "soil"
+  ],
+  "feature_ranges": {
+    "N": [
+      0.0,
+      120.0
+    ],
+    "P": [
+      5.0,
+      80.0
+    ],
+    "K": [
+      5.0,
+      85.0
+    ],
+    "temperature": [
+      10.01,
+      34.95
+    ],
+    "humidity": [
+      14.26,
+      95.0
+    ],
+    "ph": [
+      5.01,
+      8.87
+    ],
+    "rainfall": [
+      20.21,
+      298.56
+    ]
+  },
+  "outlier_policy": "keep (plausible, crop-specific values); warn on out-of-range inputs at inference",
+  "split": {
+    "test_size": 0.2,
+    "stratified": true,
+    "random_state": 42,
+    "train_rows": 800,
+    "test_rows": 200
+  },
+  "preprocessing": {
+    "numeric": [
+      "SimpleImputer(median)",
+      "StandardScaler"
+    ],
+    "categorical": [
+      "SimpleImputer(most_frequent)",
+      "OneHotEncoder(handle_unknown=ignore)"
+    ],
+    "target": "LabelEncoder"
+  },
+  "engineered_features_evaluated": [
+    "npk_total",
+    "n_p_ratio",
+    "n_k_ratio",
+    "p_k_ratio",
+    "temp_humidity"
+  ],
+  "keep_engineered_features": false,
+  "engineered_feature_cv_gain_pp": {
+    "LogisticRegression": 0.0,
+    "RandomForest": 0.0
+  }
+}

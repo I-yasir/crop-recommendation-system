@@ -2,7 +2,7 @@
 
 **Title:** A Data-Driven Crop Recommendation Web Application Using Machine Learning
 **Source spec:** [`docs/instructions.md`](instructions.md)
-**Last updated:** 2026-11-18 (Phase 1)
+**Last updated:** 2026-11-18 (Phase 2)
 
 ---
 
@@ -71,6 +71,10 @@ These shape the preprocessing plan and must be confirmed in the Phase 2 notebook
 5. **Dirty category value:** `"loamy clay "` has a trailing space. Category strings must be
    stripped and lower-cased during cleaning.
 6. Unique soil distribution: sandy loam 400, loamy 300, clay 200, loamy clay 100.
+7. *(Phase 2)* **Soil type perfectly determines a crop group** (Cramér's V = 1.0): every crop
+   occurs on exactly one soil. This is a dataset limitation that the app must disclose.
+8. *(Phase 2)* The classes are almost perfectly separable (reference models reach CV macro-F1 ≈ 1.0),
+   so model selection in Phase 3 will be driven mainly by cost metrics.
 
 With ~1,000 unique samples, evaluation will use **stratified k-fold cross-validation** plus a
 held-out stratified test split, rather than relying on a single split.
@@ -115,6 +119,7 @@ Key design choices:
 Crop Recomendation System/
 ├── app/                 # Streamlit app (UI only)
 ├── data/                # Raw data (read-only) + data dictionary
+│   └── processed/       # Cleaned data + train/test split (generated in Phase 2)
 ├── docs/                # instructions, overview, plan, workflow, phase logs
 ├── models/              # Serialized best pipeline + metadata (generated)
 ├── notebooks/           # eda.ipynb (Phase 2), model_training.ipynb (Phase 3)

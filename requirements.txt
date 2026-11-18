@@ -1,0 +1,16 @@
+# Core data / ML stack (Phase 2+)
+pandas>=2.2
+numpy>=1.26
+scipy>=1.12
+scikit-learn>=1.5
+matplotlib>=3.8
+seaborn>=0.13
+
+# Notebooks
+jupyter>=1.0
+nbformat>=5.10
+nbconvert>=7.16
+ipykernel>=6.29
+
+# Added in later phases: xgboost, lightgbm, joblib, psutil (Phase 3);
+# pdfplumber, python-docx, streamlit, pytest (Phases 4-5). Versions get pinned in Phase 5.
