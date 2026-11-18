@@ -2,7 +2,7 @@
 
 **Title:** A Data-Driven Crop Recommendation Web Application Using Machine Learning
 **Source spec:** [`docs/instructions.md`](instructions.md)
-**Last updated:** 2026-11-18 (Phase 5)
+**Last updated:** 2026-11-18 (Phase 6)
 
 ---
 

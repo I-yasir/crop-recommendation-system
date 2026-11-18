@@ -1,5 +1,5 @@
 {
-  "created_utc": "2026-11-18T09:03:51+00:00",
+  "created_utc": "2026-11-18T10:22:52+00:00",
   "selection_rule": "Highest CV macro-F1; models within 1 pp shortlisted; noise (10%) and log-loss (<=0.15) guards; lowest summed cost rank (single-row latency, size, peak memory); ties -> lower CV log loss.",
   "best_cv_f1": 1.0,
   "shortlist": [
@@ -26,13 +26,13 @@
     "RandomForest (tuned)"
   ],
   "selected": "LogisticRegression",
-  "rationale": "LogisticRegression was selected. CV macro-F1 = 1.0000 (best = 1.0000); 11 models were within 1 pp, so the cost rule decided. Among those passing the noise and log-loss guards, LogisticRegression had the lowest cost rank sum (single-row latency 2.78 ms, size 2.9 KB, peak memory 20.6 MB). Held-out test: macro-F1 1.0000, top-3 accuracy 1.0000, log loss 0.0326; accuracy under 10% input noise 1.0000. Runner-up: SVM (RBF).",
+  "rationale": "LogisticRegression was selected. CV macro-F1 = 1.0000 (best = 1.0000); 11 models were within 1 pp, so the cost rule decided. Among those passing the noise and log-loss guards, LogisticRegression had the lowest cost rank sum (single-row latency 3.11 ms, size 2.9 KB, peak memory 21.0 MB). Held-out test: macro-F1 1.0000, top-3 accuracy 1.0000, log loss 0.0326; accuracy under 10% input noise 1.0000. Runner-up: SVM (RBF).",
   "tuning": [
     {
       "model": "KNN",
       "default_cv_log_loss": 2.220446049250313e-16,
       "tuned_cv_log_loss": 2.220446049250313e-16,
-      "search_time_s": 0.5040663930121809,
+      "search_time_s": 0.6193758140143473,
       "best_params": {
         "n_neighbors": 5,
         "weights": "distance"
@@ -42,7 +42,7 @@
       "model": "LightGBM",
       "default_cv_log_loss": 0.002793557935596343,
       "tuned_cv_log_loss": 0.0004765375484998888,
-      "search_time_s": 6.23633401299594,
+      "search_time_s": 5.896623870008625,
       "best_params": {
         "colsample_bytree": 0.7085396127095583,
         "learning_rate": 0.18866916884450208,
@@ -57,7 +57,7 @@
       "model": "RandomForest",
       "default_cv_log_loss": 0.008358273338581397,
       "tuned_cv_log_loss": 0.007229655286096268,
-      "search_time_s": 9.81671921000816,
+      "search_time_s": 8.987794553977437,
       "best_params": {
         "max_depth": 16,
         "max_features": null,
@@ -69,7 +69,7 @@
       "model": "GradientBoosting",
       "default_cv_log_loss": 0.01252604790228785,
       "tuned_cv_log_loss": 0.0018314439593704606,
-      "search_time_s": 32.02031679401989,
+      "search_time_s": 32.75558846400236,
       "best_params": {
         "learning_rate": 0.10480691345771218,
         "max_depth": 2,

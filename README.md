@@ -67,6 +67,53 @@ pytest                               # pipeline, parser, inference and app tests
   model (about 3 KB) and the fastest (about 3 ms per prediction), and is the most robust to noisy inputs. See
   [`reports/model_comparison.csv`](reports/model_comparison.csv) and [`docs/phase_logs.md`](docs/phase_logs.md).
 
+## Results at a glance
+
+| | |
+|---|---|
+| Unique training rows | 1,000 (800 train / 200 test, stratified, seed 42) |
+| Selected model | Logistic Regression, scikit-learn pipeline (impute → scale / one-hot → model) |
+| Held-out test | accuracy 100 %, macro-F1 1.000, top-3 accuracy 100 % |
+| Cost | ~3 KB on disk, ~3 ms per prediction (1 CPU core) |
+| Robustness | 100 % accuracy with 10 % Gaussian noise added to the inputs |
+| Most important inputs | soil texture > N > K > rainfall > P > temperature > humidity > pH |
+| Tests | 64 pytest tests (pipeline, parser, inference, tips, Streamlit app) |
+
+Figures from the analysis are in [`reports/figures/`](reports/figures/).
+
+## Project structure
+
+```
+├── app/streamlit_app.py      Streamlit UI (manual form, report upload + review, results)
+├── src/                      Pipeline package
+│   ├── config.py             paths, features, valid ranges, seed, model settings
+│   ├── schema.py             input validation (errors vs warnings), soil-name normalisation
+│   ├── data_ingestion.py     load CSV + schema check
+│   ├── data_cleaning.py      normalise, de-duplicate, label-conflict and range checks
+│   ├── feature_engineering.py  preprocessing ColumnTransformer
+│   ├── train.py              CLI: train, evaluate, save model + metadata
+│   ├── evaluate.py           metrics and cost measurement
+│   ├── inference.py          CropPredictor: top-3 with confidence
+│   ├── report_parser.py      PDF/DOCX/DOC/TXT text extraction + regex parameter extraction
+│   └── recommendations.py    farming tips
+├── notebooks/                eda.ipynb, model_training.ipynb
+├── data/                     original_dataset.csv, data_dictionary.csv, processed/
+├── models/                   crop_model.joblib (generated), label_encoder.joblib (generated), metadata.json
+├── reports/                  model comparison, evaluation log, figures
+├── tests/                    pytest suite + fixtures/ sample reports
+├── docs/                     project_overview, plan, workflow, phase_logs
+├── requirements.txt          pinned runtime dependencies
+├── requirements-dev.txt      + notebooks, XGBoost/LightGBM, pytest
+└── Dockerfile
+```
+
+## Documentation
+
+* [`docs/project_overview.md`](docs/project_overview.md): scope, architecture, data schema, tech stack
+* [`docs/plan.md`](docs/plan.md): phase-by-phase roadmap and change log
+* [`docs/workflow.md`](docs/workflow.md): validation, testing and context-tracking rules
+* [`docs/phase_logs.md`](docs/phase_logs.md): what each phase did, the decisions made and the key numbers
+
 ## Limitations
 
 * In this dataset **each crop occurs on exactly one soil texture**, so soil strongly constrains the

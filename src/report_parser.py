@@ -152,11 +152,15 @@ SYNONYMS: dict[str, list[str]] = {
 
 # Thousands separators ("1,250") or a decimal point/comma ("6.5", "6,5").
 _NUMBER = r"(?P<num>-?\d{1,3}(?:,\d{3})+(?:\.\d+)?|-?\d+(?:[.,]\d+)?)"
-_UNIT = r"\s*(?P<unit>°\s?[CF]\b|deg(?:rees)?\s?[CF]\b|[CF]\b(?!\w)|%|mm\b|cm\b|in(?:ches)?\b|ppm\b|mg\s?/\s?kg\b|kg\s?/\s?ha\b)?"
+_UNIT = (r"\s*(?P<unit>°\s?[CF]\b|deg(?:rees)?\s?[CF]\b|[CF]\b(?!\w)|%|mm\b|cm\b|in(?:ches)?\b"
+         r"|ppm\b|mg\s?/\s?kg\b|kg\s?/\s?ha\b)?")
 # Gap between label and number: same line, no digits, at most 40 characters (units, ':', '(', '|', etc.).
 _GAP = r"[^\d\n]{0,40}?"
 
-SOIL_LABEL_RE = re.compile(r"(?i)\b(?:soil\s*(?:type|texture|class)|texture(?:\s*class)?)\b[^\w\n]{0,10}(?P<val>[A-Za-z][A-Za-z \-]{2,40})")
+SOIL_LABEL_RE = re.compile(
+    r"(?i)\b(?:soil\s*(?:type|texture|class)|texture(?:\s*class)?)\b"  # the label
+    r"[^\w\n]{0,10}(?P<val>[A-Za-z][A-Za-z \-]{2,40})"                # separator, then the value
+)
 
 
 @dataclass

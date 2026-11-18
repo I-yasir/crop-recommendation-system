@@ -162,3 +162,37 @@ reports, and `pytest.ini`. `requirements.txt` now also lists pdfplumber, python-
 
 **Fix made during testing:** the upload tab cleared the parsed report on every rerun when no file object was
 present. Clearing now happens only when the uploaded file changes or is removed (`on_change` callback).
+- Approved by owner on 2026-11-18.
+
+## Phase 6 — Final QA & Hand-off (2026-11-18)
+
+**Checks run**
+| Check | Result |
+|---|---|
+| `pytest` (full suite) | 64 passed, 0 skipped |
+| `notebooks/eda.ipynb` re-executed on a clean kernel | 25/25 code cells, 0 errors |
+| `notebooks/model_training.ipynb` re-executed | 20/20 code cells, 0 errors; selects LogisticRegression again |
+| Static checks (stdlib: syntax/compile, unused imports, line length ≤ 120, bare except, trailing whitespace) | 3 long lines fixed, then clean. ruff/flake8 are not installed. |
+| Clean install | Docker image rebuilt from the pinned `requirements.txt` with the final code |
+| Container smoke test | healthy; parses PDF/DOCX/DOC/TXT and US-units fixtures; predictions as expected |
+
+**Fixes made in this phase**
+- The training notebook now writes `crop_profiles` into `models/metadata.json`, using the same function as
+  `python -m src.train`. Before this, re-running the notebook removed the data-driven tips from the app.
+- Wrapped 3 over-long lines (a tip string and two regexes).
+- README expanded: results table, project structure, links to the docs.
+
+**Success criteria (`project_overview.md` §7)**
+| Criterion | Status |
+|---|---|
+| Notebook and pipeline reproduce the same metrics from a fixed seed | ✅ identical predictions (max diff 0.0) |
+| Macro-F1 ≥ 0.90 on CV and test | ✅ 1.000 / 1.000. The ceiling comes from a near-perfectly separable dataset. |
+| Single-prediction latency ≪ 100 ms | ✅ about 3 ms |
+| Parser extracts all 8 inputs from PDF, DOCX and TXT and lists missing values | ✅ (DOC as well) |
+| `pytest`, `docker build` and `streamlit run` work | ✅ |
+
+**Known limitations (for hand-off)**
+- One soil type per crop in the data, and the data is clean and likely synthetic, so real-world accuracy will be lower.
+- Nutrient units are not converted. Scanned PDFs are not supported (no OCR).
+- `models/*.joblib` are git-ignored. Regenerate them with `python -m src.train` (the Docker build does this itself).
+- No remote repository; everything is committed locally.

@@ -19,7 +19,8 @@ from src import config
 
 GENERAL_TIPS: dict[str, list[str]] = {
     "beans": [
-        "Inoculate seed with Rhizobium if beans have not been grown in the field recently; nodulation reduces nitrogen needs.",
+        "Inoculate seed with Rhizobium if beans have not been grown in the field recently; "
+        "nodulation reduces nitrogen needs.",
         "Avoid waterlogging: plant on raised beds or ridges in heavy soils.",
         "Rotate with cereals to break disease cycles such as anthracnose and root rot.",
     ],

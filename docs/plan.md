@@ -9,8 +9,8 @@ until the previous one is approved. Every phase begins by re-reading `docs/`.
 | 2 | EDA & preprocessing | ✅ Done (approved) |
 | 3 | Model training, evaluation & selection | ✅ Done (approved) |
 | 4 | End-to-end ML pipeline (`src/`) | ✅ Done (approved) |
-| 5 | Streamlit web app + deployment config | ✅ Done, awaiting approval |
-| 6 | Final QA & hand-off | ⏳ Not started |
+| 5 | Streamlit web app + deployment config | ✅ Done (approved) |
+| 6 | Final QA & hand-off | ✅ Done, awaiting approval |
 
 ---
 
@@ -98,12 +98,16 @@ Selection rule refined: quality guards (noise robustness, log loss) and a 10 % t
 ## Phase 6 — Final QA & Hand-off
 - Full test run, notebook re-execution, lint pass, README polish, final summary of results.
 
+**Status:** done. 64 tests pass; both notebooks re-run cleanly; static checks clean; Docker image rebuilt
+from pinned requirements; README expanded; success criteria reviewed in `docs/phase_logs.md`.
+
 ---
 
 ## Change log
 | Date | Change |
 |---|---|
 | 2026-11-18 | Plan created (Phase 1). |
+| 2026-11-18 | Phase 6 done. Notebook metadata now includes `crop_profiles` (same as the CLI). |
 | 2026-11-18 | Phase 5 done. Requirements split into runtime (pinned) and dev. |
 | 2026-11-18 | Phase 4 done. `src/` package, 59 tests, sample reports in `tests/fixtures/`. |
 | 2026-11-18 | Phase 3 done. Logistic Regression selected; tolerance band + quality guards added to the selection rule. |
