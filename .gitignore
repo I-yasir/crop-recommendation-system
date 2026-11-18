@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+.pytest_cache/
+.env
+# Generated artifacts (models are rebuilt by the pipeline)
+models/*.joblib
+models/*.pkl
