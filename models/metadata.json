@@ -1,0 +1,161 @@
+{
+  "model_name": "LogisticRegression",
+  "estimator_class": "LogisticRegression",
+  "created_utc": "2026-11-18T09:03:51+00:00",
+  "artifacts": {
+    "model": "crop_model.joblib",
+    "label_encoder": "label_encoder.joblib"
+  },
+  "features": {
+    "numeric": [
+      "N",
+      "P",
+      "K",
+      "temperature",
+      "humidity",
+      "ph",
+      "rainfall"
+    ],
+    "categorical": [
+      "soil"
+    ],
+    "order": [
+      "N",
+      "P",
+      "K",
+      "temperature",
+      "humidity",
+      "ph",
+      "rainfall",
+      "soil"
+    ]
+  },
+  "soil_categories": [
+    "clay",
+    "loamy",
+    "loamy clay",
+    "sandy loam"
+  ],
+  "classes": [
+    "beans",
+    "cassava",
+    "guinea_corn",
+    "maize",
+    "orange",
+    "pepper",
+    "rice",
+    "soybean",
+    "tomatoes",
+    "yam"
+  ],
+  "feature_ranges": {
+    "N": [
+      0.0,
+      120.0
+    ],
+    "P": [
+      5.0,
+      80.0
+    ],
+    "K": [
+      5.0,
+      85.0
+    ],
+    "temperature": [
+      10.01,
+      34.95
+    ],
+    "humidity": [
+      14.26,
+      95.0
+    ],
+    "ph": [
+      5.01,
+      8.87
+    ],
+    "rainfall": [
+      20.21,
+      298.56
+    ]
+  },
+  "training_data": {
+    "source": "data/processed/train.csv",
+    "rows": 800,
+    "random_state": 42
+  },
+  "cv_metrics": {
+    "cv_accuracy": 1.0,
+    "cv_precision_macro": 1.0,
+    "cv_recall_macro": 1.0,
+    "cv_f1_macro": 1.0,
+    "cv_f1_macro_std": 0.0,
+    "cv_top3_accuracy": 1.0,
+    "cv_log_loss": 0.03656927653259175,
+    "cv_fit_time_s": 0.03095526695251465
+  },
+  "test_metrics": {
+    "test_accuracy": 1.0,
+    "test_precision_macro": 1.0,
+    "test_recall_macro": 1.0,
+    "test_f1_macro": 1.0,
+    "test_top3_accuracy": 1.0,
+    "test_log_loss": 0.03256546959541946
+  },
+  "cost": {
+    "latency_single_ms": 2.778064997983165,
+    "latency_batch1k_ms": 3.0956255068304017,
+    "size_kb": 2.9375,
+    "load_time_ms": 60.77627101331018,
+    "py_alloc_peak_mb": 9.148690223693848,
+    "rss_growth_mb": 20.57421875,
+    "peak_memory_mb": 20.57421875
+  },
+  "robustness": {
+    "acc_noise_5pct": 1.0,
+    "top3_noise_5pct": 1.0,
+    "acc_noise_10pct": 1.0,
+    "top3_noise_10pct": 1.0,
+    "acc_noise_20pct": 0.9995,
+    "top3_noise_20pct": 1.0
+  },
+  "model_params": {
+    "C": 1.0,
+    "class_weight": null,
+    "dual": false,
+    "fit_intercept": true,
+    "intercept_scaling": 1,
+    "l1_ratio": 0.0,
+    "max_iter": 5000,
+    "n_jobs": null,
+    "penalty": "deprecated",
+    "random_state": 42,
+    "solver": "lbfgs",
+    "tol": 0.0001,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "library_versions": {
+    "python": "3.12.3",
+    "scikit-learn": "1.9.1",
+    "numpy": "2.5.5",
+    "pandas": "3.1.1",
+    "joblib": "1.6.0",
+    "xgboost": "3.4.1",
+    "lightgbm": "4.7.0"
+  },
+  "candidates_evaluated": [
+    "Dummy (baseline)",
+    "LogisticRegression",
+    "KNN",
+    "SVM (RBF)",
+    "RandomForest",
+    "GradientBoosting",
+    "XGBoost",
+    "LightGBM",
+    "KNN (tuned)",
+    "LightGBM (tuned)",
+    "RandomForest (tuned)",
+    "GradientBoosting (tuned)"
+  ],
+  "candidates_missing": []
+}

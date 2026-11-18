@@ -12,5 +12,11 @@ nbformat>=5.10
 nbconvert>=7.16
 ipykernel>=6.29
 
-# Added in later phases: xgboost, lightgbm, joblib, psutil (Phase 3);
-# pdfplumber, python-docx, streamlit, pytest (Phases 4-5). Versions get pinned in Phase 5.
+# Modelling & cost measurement (Phase 3)
+xgboost>=2.1
+lightgbm>=4.5
+joblib>=1.4
+psutil>=6.0
+
+# Added in later phases: pdfplumber, python-docx, streamlit, pytest (Phases 4-5).
+# Versions get pinned in Phase 5.

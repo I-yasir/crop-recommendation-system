@@ -1,0 +1,282 @@
+{
+  "created_utc": "2026-11-18T09:03:51+00:00",
+  "selection_rule": "Highest CV macro-F1; models within 1 pp shortlisted; noise (10%) and log-loss (<=0.15) guards; lowest summed cost rank (single-row latency, size, peak memory); ties -> lower CV log loss.",
+  "best_cv_f1": 1.0,
+  "shortlist": [
+    "KNN",
+    "KNN (tuned)",
+    "LightGBM (tuned)",
+    "LogisticRegression",
+    "SVM (RBF)",
+    "GradientBoosting (tuned)",
+    "LightGBM",
+    "RandomForest (tuned)",
+    "RandomForest",
+    "XGBoost",
+    "GradientBoosting"
+  ],
+  "eligible_after_guards": [
+    "LogisticRegression",
+    "SVM (RBF)",
+    "KNN",
+    "KNN (tuned)",
+    "RandomForest",
+    "LightGBM (tuned)",
+    "GradientBoosting (tuned)",
+    "RandomForest (tuned)"
+  ],
+  "selected": "LogisticRegression",
+  "rationale": "LogisticRegression was selected. CV macro-F1 = 1.0000 (best = 1.0000); 11 models were within 1 pp, so the cost rule decided. Among those passing the noise and log-loss guards, LogisticRegression had the lowest cost rank sum (single-row latency 2.78 ms, size 2.9 KB, peak memory 20.6 MB). Held-out test: macro-F1 1.0000, top-3 accuracy 1.0000, log loss 0.0326; accuracy under 10% input noise 1.0000. Runner-up: SVM (RBF).",
+  "tuning": [
+    {
+      "model": "KNN",
+      "default_cv_log_loss": 2.220446049250313e-16,
+      "tuned_cv_log_loss": 2.220446049250313e-16,
+      "search_time_s": 0.5040663930121809,
+      "best_params": {
+        "n_neighbors": 5,
+        "weights": "distance"
+      }
+    },
+    {
+      "model": "LightGBM",
+      "default_cv_log_loss": 0.002793557935596343,
+      "tuned_cv_log_loss": 0.0004765375484998888,
+      "search_time_s": 6.23633401299594,
+      "best_params": {
+        "colsample_bytree": 0.7085396127095583,
+        "learning_rate": 0.18866916884450208,
+        "min_child_samples": 29,
+        "n_estimators": 237,
+        "num_leaves": 35,
+        "subsample": 0.9406590942262119,
+        "subsample_freq": 1
+      }
+    },
+    {
+      "model": "RandomForest",
+      "default_cv_log_loss": 0.008358273338581397,
+      "tuned_cv_log_loss": 0.007229655286096268,
+      "search_time_s": 9.81671921000816,
+      "best_params": {
+        "max_depth": 16,
+        "max_features": null,
+        "min_samples_leaf": 2,
+        "n_estimators": 274
+      }
+    },
+    {
+      "model": "GradientBoosting",
+      "default_cv_log_loss": 0.01252604790228785,
+      "tuned_cv_log_loss": 0.0018314439593704606,
+      "search_time_s": 32.02031679401989,
+      "best_params": {
+        "learning_rate": 0.10480691345771218,
+        "max_depth": 2,
+        "n_estimators": 138,
+        "subsample": 0.7873687420594125
+      }
+    }
+  ],
+  "classification_report_test": {
+    "beans": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "cassava": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "guinea_corn": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "maize": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "orange": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "pepper": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "rice": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "soybean": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "tomatoes": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "yam": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 200.0
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 200.0
+    }
+  },
+  "confusion_matrix_test": [
+    [
+      20,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      20,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      20,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      20,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      20,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      20,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      20,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      20,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      20,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      20
+    ]
+  ],
+  "machine": {
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+    "cpu_count": 8
+  }
+}

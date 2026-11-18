@@ -2,7 +2,7 @@
 
 **Title:** A Data-Driven Crop Recommendation Web Application Using Machine Learning
 **Source spec:** [`docs/instructions.md`](instructions.md)
-**Last updated:** 2026-11-18 (Phase 2)
+**Last updated:** 2026-11-18 (Phase 3)
 
 ---
 
@@ -75,6 +75,8 @@ These shape the preprocessing plan and must be confirmed in the Phase 2 notebook
    occurs on exactly one soil. This is a dataset limitation that the app must disclose.
 8. *(Phase 2)* The classes are almost perfectly separable (reference models reach CV macro-F1 ≈ 1.0),
    so model selection in Phase 3 will be driven mainly by cost metrics.
+9. *(Phase 3)* Confirmed: 11 of 12 model variants reach CV macro-F1 ≥ 0.99; the selected model is a
+   **Logistic Regression** pipeline (2.9 KB, ~2.8 ms per prediction, 100 % test accuracy).
 
 With ~1,000 unique samples, evaluation will use **stratified k-fold cross-validation** plus a
 held-out stratified test split, rather than relying on a single split.
@@ -121,7 +123,7 @@ Crop Recomendation System/
 ├── data/                # Raw data (read-only) + data dictionary
 │   └── processed/       # Cleaned data + train/test split (generated in Phase 2)
 ├── docs/                # instructions, overview, plan, workflow, phase logs
-├── models/              # Serialized best pipeline + metadata (generated)
+├── models/              # crop_model.joblib, label_encoder.joblib, metadata.json (generated, Phase 3)
 ├── notebooks/           # eda.ipynb (Phase 2), model_training.ipynb (Phase 3)
 ├── reports/             # Evaluation logs, comparison tables, figures (generated)
 ├── src/                 # Modular pipeline package

@@ -6,8 +6,8 @@ until the previous one is approved. Every phase begins by re-reading `docs/`.
 | Phase | Name | Status |
 |---|---|---|
 | 1 | Documentation & setup | ✅ Done (approved) |
-| 2 | EDA & preprocessing | ✅ Done, awaiting approval |
-| 3 | Model training, evaluation & selection | ⏳ Not started |
+| 2 | EDA & preprocessing | ✅ Done (approved) |
+| 3 | Model training, evaluation & selection | ✅ Done, awaiting approval |
 | 4 | End-to-end ML pipeline (`src/`) | ⏳ Not started |
 | 5 | Streamlit web app + deployment config | ⏳ Not started |
 | 6 | Final QA & hand-off | ⏳ Not started |
@@ -59,6 +59,9 @@ until the previous one is approved. Every phase begins by re-reading `docs/`.
 6. Serialize the winning full pipeline with joblib + `metadata.json` (features, classes,
    metrics, versions, seed). Save comparison table to `reports/model_comparison.csv` and logs.
 
+**Status:** done. 8 candidates plus 4 tuned variants compared; **Logistic Regression** selected (see `docs/phase_logs.md`).
+Selection rule refined: quality guards (noise robustness, log loss) and a 10 % tolerance band on cost ranks.
+
 **Exit criteria:** comparison table + chosen model with written justification.
 
 ## Phase 4 — End-to-End ML Pipeline (`src/`)
@@ -97,4 +100,5 @@ until the previous one is approved. Every phase begins by re-reading `docs/`.
 | Date | Change |
 |---|---|
 | 2026-11-18 | Plan created (Phase 1). |
+| 2026-11-18 | Phase 3 done. Logistic Regression selected; tolerance band + quality guards added to the selection rule. |
 | 2026-11-18 | Phase 2 done. Added `data/processed/` for derived data; engineered features dropped (no gain). |
