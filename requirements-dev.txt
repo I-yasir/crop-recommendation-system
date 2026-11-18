@@ -1,0 +1,19 @@
+# Development extras: notebooks (EDA + model comparison), extra candidate models, tests.
+# Install with:  pip install -r requirements-dev.txt
+-r requirements.txt
+
+# Notebooks and plots
+jupyter==1.1.1
+nbformat==5.11.1
+nbconvert==7.17.2
+ipykernel==7.4.0
+matplotlib==3.11.2
+seaborn==0.13.2
+
+# Phase 3 candidate models and cost measurement
+xgboost==3.4.1
+lightgbm==4.7.0
+psutil==7.2.2
+
+# Tests
+pytest==9.2.0

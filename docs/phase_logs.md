@@ -130,3 +130,35 @@ reports, and `pytest.ini`. `requirements.txt` now also lists pdfplumber, python-
   Dockerfile must install one.
 - Nutrient units are not converted (ppm, mg/kg and kg/ha are taken as-is). The dataset does not state its nutrient
   units, so the app shows parsed values for the user to review.
+- Approved by owner on 2026-11-18.
+
+## Phase 5 — Production-Ready Web Application (2026-11-18)
+
+**Deliverables**
+- `app/streamlit_app.py`: UI only; all logic comes from `src/`.
+  - **Manual input:** sliders for N, P, K, pH, temperature, humidity and rainfall, plus a soil texture dropdown (inside a form).
+  - **Upload a report:** PDF/DOCX/DOC/TXT. Shows how many values were found, unit-conversion notes, the matched
+    text and the raw extracted text, then a pre-filled **review form**. Missing fields are marked ⚠️ and must be
+    filled before predicting. Unreadable files get a friendly error.
+  - **Results:** top-3 cards with confidence bars; a low-confidence warning (below 0.60); out-of-training-range
+    warnings; per-crop tip tabs labelled "your data vs. training data" or "general advice"; a probability chart for
+    all crops; a downloadable .txt summary.
+  - Sidebar: about, model details, and limitations (one soil per crop, clean/synthetic data, units, advisory).
+  - Model cached with `st.cache_resource`; a clear message if `models/` is empty.
+- `.streamlit/config.toml`: binds to 127.0.0.1 locally, 10 MB upload limit, theme.
+- `requirements.txt` (pinned runtime) and `requirements-dev.txt` (+ notebooks, XGBoost/LightGBM, psutil, pytest).
+- `Dockerfile` (python:3.12-slim + catdoc, trains the model at build time, non-root user, health check) and
+  `.dockerignore`.
+- `README.md` with local and Docker run instructions.
+- `tests/test_app.py`: 5 headless Streamlit AppTest tests (load, manual flow, missing soil, upload-review flow,
+  missing values flagged). **64 tests pass in total.**
+
+**Verification**
+- Local: app checked in a browser. The manual path gives guinea corn / maize / cassava with tips. The upload-review
+  logic is covered by AppTest using real parsed fixture reports. A by-hand upload through the browser is left to
+  the owner's verification steps.
+- Docker: `docker build -t crop-recommender .` succeeded (1.14 GB on disk, 266 MB content). The container is
+  healthy, runs as `appuser`, serves the UI, and parses the PDF, DOCX, DOC (catdoc) and TXT fixtures correctly.
+
+**Fix made during testing:** the upload tab cleared the parsed report on every rerun when no file object was
+present. Clearing now happens only when the uploaded file changes or is removed (`on_change` callback).

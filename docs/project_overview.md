@@ -2,7 +2,7 @@
 
 **Title:** A Data-Driven Crop Recommendation Web Application Using Machine Learning
 **Source spec:** [`docs/instructions.md`](instructions.md)
-**Last updated:** 2026-11-18 (Phase 4)
+**Last updated:** 2026-11-18 (Phase 5)
 
 ---
 
@@ -119,7 +119,8 @@ Key design choices:
 
 ```
 Crop Recomendation System/
-├── app/                 # Streamlit app (UI only)
+├── app/                 # streamlit_app.py: Streamlit UI only (manual form, report upload/review, results)
+├── .streamlit/          # Streamlit server/theme config (localhost by default, 10 MB uploads)
 ├── data/                # Raw data (read-only) + data dictionary
 │   └── processed/       # Cleaned data + train/test split (generated in Phase 2)
 ├── docs/                # instructions, overview, plan, workflow, phase logs
@@ -130,8 +131,10 @@ Crop Recomendation System/
 │                        #   feature_engineering, train, evaluate, inference, report_parser, recommendations
 ├── tests/               # pytest suite (59 tests) + fixtures/ sample reports (TXT, DOCX, PDF, DOC)
 ├── pytest.ini           # pytest config (adds project root to the import path)
-├── requirements.txt     # (Phase 5)
-└── Dockerfile           # (Phase 5)
+├── requirements.txt     # Pinned runtime deps (app + pipeline)
+├── requirements-dev.txt # + notebooks, XGBoost/LightGBM, pytest
+├── README.md            # Setup and run instructions
+└── Dockerfile           # python:3.12-slim + catdoc; trains the model at build time
 ```
 
 `models/` and `reports/` were added beyond the six folders in the spec to keep generated

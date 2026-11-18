@@ -8,8 +8,8 @@ until the previous one is approved. Every phase begins by re-reading `docs/`.
 | 1 | Documentation & setup | ✅ Done (approved) |
 | 2 | EDA & preprocessing | ✅ Done (approved) |
 | 3 | Model training, evaluation & selection | ✅ Done (approved) |
-| 4 | End-to-end ML pipeline (`src/`) | ✅ Done, awaiting approval |
-| 5 | Streamlit web app + deployment config | ⏳ Not started |
+| 4 | End-to-end ML pipeline (`src/`) | ✅ Done (approved) |
+| 5 | Streamlit web app + deployment config | ✅ Done, awaiting approval |
 | 6 | Final QA & hand-off | ⏳ Not started |
 
 ---
@@ -91,6 +91,8 @@ Selection rule refined: quality guards (noise robustness, log loss) and a 10 % t
 4. Clean, responsive layout; friendly error handling; model cached with `st.cache_resource`.
 5. `requirements.txt` (pinned), `Dockerfile`, `.dockerignore`, `README.md` run instructions.
 
+**Status:** done. `app/streamlit_app.py`, `.streamlit/config.toml`, pinned `requirements.txt` + `requirements-dev.txt`, `Dockerfile`, `.dockerignore`, `README.md`; 5 headless app tests (64 tests total).
+
 **Exit criteria:** app works locally and in Docker with manual input and all three file types.
 
 ## Phase 6 — Final QA & Hand-off
@@ -102,6 +104,7 @@ Selection rule refined: quality guards (noise robustness, log loss) and a 10 % t
 | Date | Change |
 |---|---|
 | 2026-11-18 | Plan created (Phase 1). |
+| 2026-11-18 | Phase 5 done. Requirements split into runtime (pinned) and dev. |
 | 2026-11-18 | Phase 4 done. `src/` package, 59 tests, sample reports in `tests/fixtures/`. |
 | 2026-11-18 | Phase 3 done. Logistic Regression selected; tolerance band + quality guards added to the selection rule. |
 | 2026-11-18 | Phase 2 done. Added `data/processed/` for derived data; engineered features dropped (no gain). |

@@ -1,7 +1,7 @@
 {
   "model_name": "LogisticRegression",
   "estimator_class": "LogisticRegression",
-  "created_utc": "2026-11-18T09:37:41+00:00",
+  "created_utc": "2026-11-18T09:40:32+00:00",
   "trained_by": "src.train",
   "artifacts": {
     "model": "crop_model.joblib",
@@ -609,8 +609,8 @@
     ]
   ],
   "cost": {
-    "latency_single_ms": 3.085339514655061,
-    "latency_batch1k_ms": 3.4211195015814155,
+    "latency_single_ms": 3.0139930022414774,
+    "latency_batch1k_ms": 3.594944006181322,
     "size_kb": 2.9375,
     "py_alloc_peak_mb": 1.0530691146850586
   }

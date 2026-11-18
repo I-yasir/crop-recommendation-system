@@ -1,0 +1,10 @@
+[server]
+maxUploadSize = 10          # MB, matches src.report_parser.MAX_FILE_BYTES
+headless = true
+address = "127.0.0.1"     # local only; the Dockerfile overrides this with 0.0.0.0
+
+[browser]
+gatherUsageStats = false
+
+[theme]
+primaryColor = "#2e7d32"

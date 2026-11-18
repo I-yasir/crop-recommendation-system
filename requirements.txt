@@ -1,31 +1,11 @@
-# Core data / ML stack (Phase 2+)
-pandas>=2.2
-numpy>=1.26
-scipy>=1.12
-scikit-learn>=1.5
-matplotlib>=3.8
-seaborn>=0.13
-
-# Notebooks
-jupyter>=1.0
-nbformat>=5.10
-nbconvert>=7.16
-ipykernel>=6.29
-
-# Modelling & cost measurement (Phase 3)
-xgboost>=2.1
-lightgbm>=4.5
-joblib>=1.4
-psutil>=6.0
-
-# Report parsing (Phase 4). Legacy .doc files also need the `antiword` or `catdoc` system tool.
-pdfplumber>=0.11
-python-docx>=1.1
-
-# Testing (Phase 4)
-pytest>=8.0
-
-# Web app (Phase 5)
-streamlit>=1.40
-
-# Versions get pinned in Phase 5.
+# Runtime dependencies for the web app and the src/ pipeline (used by the Dockerfile).
+# Pinned to the versions tested in Phase 5 (Python 3.12).
+# Legacy .doc parsing also needs a system tool: `catdoc` or `antiword` (apt-get install catdoc).
+numpy==2.5.5
+pandas==3.1.1
+scikit-learn==1.9.1
+scipy==1.18.1
+joblib==1.6.0
+pdfplumber==0.11.10
+python-docx==1.2.0
+streamlit==1.67.0
