@@ -7,8 +7,8 @@ until the previous one is approved. Every phase begins by re-reading `docs/`.
 |---|---|---|
 | 1 | Documentation & setup | ✅ Done (approved) |
 | 2 | EDA & preprocessing | ✅ Done (approved) |
-| 3 | Model training, evaluation & selection | ✅ Done, awaiting approval |
-| 4 | End-to-end ML pipeline (`src/`) | ⏳ Not started |
+| 3 | Model training, evaluation & selection | ✅ Done (approved) |
+| 4 | End-to-end ML pipeline (`src/`) | ✅ Done, awaiting approval |
 | 5 | Streamlit web app + deployment config | ⏳ Not started |
 | 6 | Final QA & hand-off | ⏳ Not started |
 
@@ -78,6 +78,8 @@ Selection rule refined: quality guards (noise robustness, log loss) and a 10 % t
 - `recommendations.py` — farming tips per crop, plus input-driven tips (e.g. low N, acidic pH).
 - Tests for cleaning, schema validation, inference contract, and parser (sample reports in `tests/fixtures/`).
 
+**Status:** done. `python -m src.train` reproduces the Phase 3 model exactly (max probability difference 0.0); 59 tests pass.
+
 **Exit criteria:** `python -m src.train` reproduces the Phase 3 model; `pytest` passes.
 
 ## Phase 5 — Production-Ready Web Application
@@ -100,5 +102,6 @@ Selection rule refined: quality guards (noise robustness, log loss) and a 10 % t
 | Date | Change |
 |---|---|
 | 2026-11-18 | Plan created (Phase 1). |
+| 2026-11-18 | Phase 4 done. `src/` package, 59 tests, sample reports in `tests/fixtures/`. |
 | 2026-11-18 | Phase 3 done. Logistic Regression selected; tolerance band + quality guards added to the selection rule. |
 | 2026-11-18 | Phase 2 done. Added `data/processed/` for derived data; engineered features dropped (no gain). |

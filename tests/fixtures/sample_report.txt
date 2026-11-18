@@ -1,0 +1,16 @@
+GREENFIELD AGRICULTURAL SOIL LABORATORY
+Soil Analysis Report          Lab No. 2026/0417          Date: 18/11/2026
+Farmer: Sample Farm           Field: Plot 3
+
+Soil Texture: Sandy Loam
+
+Parameter                 Result     Unit
+Nitrogen (N)              40         mg/kg
+Phosphorus (P)            27         mg/kg
+Potassium (K)             45         mg/kg
+Soil pH (H2O)             5.89
+
+Climate summary (season average)
+Temperature: 21.66 °C
+Relative Humidity: 94.79 %
+Rainfall: 112.43 mm

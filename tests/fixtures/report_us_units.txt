@@ -1,0 +1,9 @@
+Field soil test - imported lab format
+Texture class: clay loam
+Total Nitrogen = 120 ppm
+P2O5 = 16.04 ppm
+K2O: 56.6 ppm
+pH value 6.65
+Avg temperature 75.65 F
+RH 83%
+Annual rainfall 2.16 inches

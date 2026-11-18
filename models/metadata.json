@@ -1,7 +1,8 @@
 {
   "model_name": "LogisticRegression",
   "estimator_class": "LogisticRegression",
-  "created_utc": "2026-11-18T09:03:51+00:00",
+  "created_utc": "2026-11-18T09:37:41+00:00",
+  "trained_by": "src.train",
   "artifacts": {
     "model": "crop_model.joblib",
     "label_encoder": "label_encoder.joblib"
@@ -78,84 +79,539 @@
       298.56
     ]
   },
+  "crop_profiles": {
+    "beans": {
+      "N": [
+        0.0,
+        20.75,
+        40.0
+      ],
+      "P": [
+        55.0,
+        67.54,
+        80.0
+      ],
+      "K": [
+        15.0,
+        20.05,
+        25.0
+      ],
+      "temperature": [
+        15.33,
+        20.12,
+        24.92
+      ],
+      "humidity": [
+        18.09,
+        21.61,
+        24.97
+      ],
+      "ph": [
+        5.5,
+        5.75,
+        6.0
+      ],
+      "rainfall": [
+        60.28,
+        105.92,
+        149.74
+      ]
+    },
+    "cassava": {
+      "N": [
+        20.0,
+        40.02,
+        60.0
+      ],
+      "P": [
+        55.0,
+        67.47,
+        80.0
+      ],
+      "K": [
+        15.0,
+        19.24,
+        25.0
+      ],
+      "temperature": [
+        25.1,
+        29.97,
+        34.95
+      ],
+      "humidity": [
+        60.07,
+        65.12,
+        69.96
+      ],
+      "ph": [
+        6.5,
+        7.13,
+        7.78
+      ],
+      "rainfall": [
+        60.42,
+        67.88,
+        74.92
+      ]
+    },
+    "guinea_corn": {
+      "N": [
+        0.0,
+        18.87,
+        40.0
+      ],
+      "P": [
+        5.0,
+        18.75,
+        30.0
+      ],
+      "K": [
+        35.0,
+        40.21,
+        45.0
+      ],
+      "temperature": [
+        18.07,
+        21.84,
+        24.96
+      ],
+      "humidity": [
+        85.13,
+        90.13,
+        95.0
+      ],
+      "ph": [
+        5.56,
+        6.43,
+        7.2
+      ],
+      "rainfall": [
+        102.52,
+        107.53,
+        112.48
+      ]
+    },
+    "maize": {
+      "N": [
+        60.0,
+        77.76,
+        100.0
+      ],
+      "P": [
+        35.0,
+        48.44,
+        60.0
+      ],
+      "K": [
+        15.0,
+        19.79,
+        25.0
+      ],
+      "temperature": [
+        18.04,
+        22.39,
+        26.55
+      ],
+      "humidity": [
+        55.28,
+        65.09,
+        74.83
+      ],
+      "ph": [
+        5.51,
+        6.25,
+        7.0
+      ],
+      "rainfall": [
+        60.65,
+        84.77,
+        109.75
+      ]
+    },
+    "orange": {
+      "N": [
+        0.0,
+        19.58,
+        40.0
+      ],
+      "P": [
+        5.0,
+        16.55,
+        30.0
+      ],
+      "K": [
+        5.0,
+        10.01,
+        15.0
+      ],
+      "temperature": [
+        10.01,
+        22.77,
+        34.91
+      ],
+      "humidity": [
+        90.01,
+        92.17,
+        94.96
+      ],
+      "ph": [
+        6.01,
+        7.02,
+        8.0
+      ],
+      "rainfall": [
+        100.17,
+        110.47,
+        119.69
+      ]
+    },
+    "pepper": {
+      "N": [
+        80.0,
+        99.42,
+        120.0
+      ],
+      "P": [
+        5.0,
+        17.0,
+        30.0
+      ],
+      "K": [
+        45.0,
+        50.22,
+        55.0
+      ],
+      "temperature": [
+        24.04,
+        25.59,
+        26.99
+      ],
+      "humidity": [
+        80.03,
+        85.16,
+        89.98
+      ],
+      "ph": [
+        6.0,
+        6.5,
+        6.96
+      ],
+      "rainfall": [
+        40.13,
+        50.79,
+        59.76
+      ]
+    },
+    "rice": {
+      "N": [
+        60.0,
+        79.89,
+        99.0
+      ],
+      "P": [
+        35.0,
+        47.58,
+        60.0
+      ],
+      "K": [
+        35.0,
+        39.87,
+        45.0
+      ],
+      "temperature": [
+        20.05,
+        23.69,
+        26.93
+      ],
+      "humidity": [
+        80.12,
+        82.27,
+        84.97
+      ],
+      "ph": [
+        5.01,
+        6.43,
+        7.87
+      ],
+      "rainfall": [
+        182.56,
+        236.18,
+        298.56
+      ]
+    },
+    "soybean": {
+      "N": [
+        20.0,
+        40.09,
+        60.0
+      ],
+      "P": [
+        55.0,
+        67.79,
+        80.0
+      ],
+      "K": [
+        75.0,
+        79.92,
+        85.0
+      ],
+      "temperature": [
+        17.02,
+        18.87,
+        21.0
+      ],
+      "humidity": [
+        14.26,
+        16.86,
+        19.97
+      ],
+      "ph": [
+        5.99,
+        7.19,
+        8.87
+      ],
+      "rainfall": [
+        65.11,
+        80.06,
+        94.78
+      ]
+    },
+    "tomatoes": {
+      "N": [
+        80.0,
+        100.32,
+        120.0
+      ],
+      "P": [
+        5.0,
+        17.72,
+        30.0
+      ],
+      "K": [
+        45.0,
+        50.08,
+        55.0
+      ],
+      "temperature": [
+        27.02,
+        28.66,
+        29.94
+      ],
+      "humidity": [
+        90.02,
+        92.34,
+        94.96
+      ],
+      "ph": [
+        6.0,
+        6.36,
+        6.78
+      ],
+      "rainfall": [
+        20.21,
+        24.69,
+        29.87
+      ]
+    },
+    "yam": {
+      "N": [
+        0.0,
+        20.99,
+        40.0
+      ],
+      "P": [
+        35.0,
+        47.28,
+        60.0
+      ],
+      "K": [
+        15.0,
+        19.87,
+        25.0
+      ],
+      "temperature": [
+        27.01,
+        28.53,
+        29.91
+      ],
+      "humidity": [
+        80.03,
+        85.5,
+        90.0
+      ],
+      "ph": [
+        6.22,
+        6.72,
+        7.2
+      ],
+      "rainfall": [
+        36.12,
+        48.4,
+        59.87
+      ]
+    }
+  },
+  "cleaning": {
+    "rows_in": 5000,
+    "rows_out": 1000,
+    "duplicates_removed": 4000,
+    "missing_values": 0,
+    "rows_dropped_missing": 0,
+    "label_conflicts": 0,
+    "out_of_limit_values": {}
+  },
   "training_data": {
-    "source": "data/processed/train.csv",
+    "source": "original_dataset.csv",
+    "full_data": false,
     "rows": 800,
-    "random_state": 42
-  },
-  "cv_metrics": {
-    "cv_accuracy": 1.0,
-    "cv_precision_macro": 1.0,
-    "cv_recall_macro": 1.0,
-    "cv_f1_macro": 1.0,
-    "cv_f1_macro_std": 0.0,
-    "cv_top3_accuracy": 1.0,
-    "cv_log_loss": 0.03656927653259175,
-    "cv_fit_time_s": 0.03095526695251465
-  },
-  "test_metrics": {
-    "test_accuracy": 1.0,
-    "test_precision_macro": 1.0,
-    "test_recall_macro": 1.0,
-    "test_f1_macro": 1.0,
-    "test_top3_accuracy": 1.0,
-    "test_log_loss": 0.03256546959541946
-  },
-  "cost": {
-    "latency_single_ms": 2.778064997983165,
-    "latency_batch1k_ms": 3.0956255068304017,
-    "size_kb": 2.9375,
-    "load_time_ms": 60.77627101331018,
-    "py_alloc_peak_mb": 9.148690223693848,
-    "rss_growth_mb": 20.57421875,
-    "peak_memory_mb": 20.57421875
-  },
-  "robustness": {
-    "acc_noise_5pct": 1.0,
-    "top3_noise_5pct": 1.0,
-    "acc_noise_10pct": 1.0,
-    "top3_noise_10pct": 1.0,
-    "acc_noise_20pct": 0.9995,
-    "top3_noise_20pct": 1.0
+    "random_state": 42,
+    "test_rows": 200
   },
   "model_params": {
-    "C": 1.0,
-    "class_weight": null,
-    "dual": false,
-    "fit_intercept": true,
-    "intercept_scaling": 1,
-    "l1_ratio": 0.0,
     "max_iter": 5000,
-    "n_jobs": null,
-    "penalty": "deprecated",
-    "random_state": 42,
-    "solver": "lbfgs",
-    "tol": 0.0001,
-    "verbose": 0,
-    "warm_start": false
+    "random_state": 42
   },
   "library_versions": {
     "python": "3.12.3",
     "scikit-learn": "1.9.1",
     "numpy": "2.5.5",
     "pandas": "3.1.1",
-    "joblib": "1.6.0",
-    "xgboost": "3.4.1",
-    "lightgbm": "4.7.0"
+    "joblib": "1.6.0"
   },
-  "candidates_evaluated": [
-    "Dummy (baseline)",
-    "LogisticRegression",
-    "KNN",
-    "SVM (RBF)",
-    "RandomForest",
-    "GradientBoosting",
-    "XGBoost",
-    "LightGBM",
-    "KNN (tuned)",
-    "LightGBM (tuned)",
-    "RandomForest (tuned)",
-    "GradientBoosting (tuned)"
+  "test_metrics": {
+    "accuracy": 1.0,
+    "precision_macro": 1.0,
+    "recall_macro": 1.0,
+    "f1_macro": 1.0,
+    "top3_accuracy": 1.0,
+    "log_loss": 0.03256546959541946
+  },
+  "confusion_matrix_test": [
+    [
+      20,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      20,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      20,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      20,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      20,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      20,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      20,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      20,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      20,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      20
+    ]
   ],
-  "candidates_missing": []
+  "cost": {
+    "latency_single_ms": 3.085339514655061,
+    "latency_batch1k_ms": 3.4211195015814155,
+    "size_kb": 2.9375,
+    "py_alloc_peak_mb": 1.0530691146850586
+  }
 }

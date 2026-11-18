@@ -2,7 +2,7 @@
 
 **Title:** A Data-Driven Crop Recommendation Web Application Using Machine Learning
 **Source spec:** [`docs/instructions.md`](instructions.md)
-**Last updated:** 2026-11-18 (Phase 3)
+**Last updated:** 2026-11-18 (Phase 4)
 
 ---
 
@@ -126,8 +126,10 @@ Crop Recomendation System/
 ├── models/              # crop_model.joblib, label_encoder.joblib, metadata.json (generated, Phase 3)
 ├── notebooks/           # eda.ipynb (Phase 2), model_training.ipynb (Phase 3)
 ├── reports/             # Evaluation logs, comparison tables, figures (generated)
-├── src/                 # Modular pipeline package
-├── tests/               # pytest unit/integration tests
+├── src/                 # Pipeline package: config, schema, data_ingestion, data_cleaning,
+│                        #   feature_engineering, train, evaluate, inference, report_parser, recommendations
+├── tests/               # pytest suite (59 tests) + fixtures/ sample reports (TXT, DOCX, PDF, DOC)
+├── pytest.ini           # pytest config (adds project root to the import path)
 ├── requirements.txt     # (Phase 5)
 └── Dockerfile           # (Phase 5)
 ```
@@ -144,7 +146,7 @@ artifacts out of `src/` and `data/`.
 | Modelling | scikit-learn, XGBoost, LightGBM |
 | Serialization | joblib |
 | Cost measurement | `time.perf_counter`, file size on disk, `tracemalloc` / `psutil` |
-| Report parsing | pdfplumber (PDF), python-docx (DOCX), `antiword`/`textract`-style fallback for legacy DOC, built-in for TXT; regex + keyword/unit matching |
+| Report parsing | pdfplumber (PDF), python-docx (DOCX), `antiword` → `catdoc` → LibreOffice for legacy DOC, built-in for TXT; regex + synonym and unit matching (°F→°C, cm/in→mm, P2O5/K2O→P/K) |
 | Web app | Streamlit |
 | Testing | pytest |
 | Deployment | `requirements.txt`, `Dockerfile` |
